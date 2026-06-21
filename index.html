@@ -17,7 +17,7 @@
             background-color: #F4E4A8;
             background-image: 
                 radial-gradient(circle at 15% 10%, rgba(200, 150, 100, 0.3) 2%, transparent 2%),
-                radial-gradient(circle at 85% 20%, rgba(200, 150, 100, 0.3) 2%, transparent 2%),a
+                radial-gradient(circle at 85% 20%, rgba(200, 150, 100, 0.3) 2%, transparent 2%),
                 radial-gradient(circle at 10% 40%, rgba(200, 150, 100, 0.3) 1.5%, transparent 1.5%),
                 radial-gradient(circle at 90% 50%, rgba(200, 150, 100, 0.3) 1.8%, transparent 1.8%),
                 radial-gradient(circle at 80% 80%, rgba(200, 150, 100, 0.3) 2.2%, transparent 2.2%);
@@ -35,13 +35,11 @@
             color: #5B4B9E;
             margin-bottom: 25px;
             padding: 40px 20px;
-            animation: fadeIn 1s ease-in;
         }
 
         h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            font-weight: 600;
         }
 
         .subtitle {
@@ -49,7 +47,7 @@
             opacity: 0.85;
         }
 
-        /* 🎵 MUSIC BUTTON */
+        /* MUSIC */
         .music {
             text-align: center;
             margin-bottom: 20px;
@@ -62,10 +60,35 @@
             padding:10px 16px;
             border-radius:12px;
             cursor:pointer;
-            font-size:1em;
-            box-shadow:0 8px 20px rgba(0,0,0,0.15);
         }
 
+        /* LETTER */
+        .letter-box {
+            text-align:center;
+            margin-bottom: 25px;
+        }
+
+        .letter-box button {
+            background:#5B4B9E;
+            color:white;
+            border:none;
+            padding:12px 18px;
+            border-radius:12px;
+            cursor:pointer;
+        }
+
+        #letter {
+            display:none;
+            margin:20px auto;
+            max-width:600px;
+            background:white;
+            border:3px solid #C89664;
+            border-radius:15px;
+            padding:20px;
+            white-space:pre-wrap;
+        }
+
+        /* GALLERY */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -98,7 +121,26 @@
         .caption {
             padding: 20px;
             text-align: center;
-            font-size: 1.1em;
+        }
+
+        /* MESSAGE */
+        .message-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            border: 3px solid #C89664;
+            margin-top: 40px;
+        }
+
+        .first-message {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .timestamp {
+            color: #999;
+            margin-top: 10px;
         }
 
         /* 🤞 particles */
@@ -126,47 +168,24 @@
         <p class="subtitle">Je t'adore, Faye 🤞<br>Bonne nuit</p>
     </header>
 
-    <!-- 🎵 MUSIC -->
+    <!-- MUSIC -->
     <div class="music">
         <button onclick="toggleMusic()">🎵 Play Music</button>
     </div>
 
-    <!-- 💌 SECRET LETTER -->
-    <div style="text-align:center; margin-bottom: 30px;">
-        <button onclick="openLetter()" style="
-            background:#5B4B9E;
-            color:white;
-            border:none;
-            padding:12px 18px;
-            border-radius:12px;
-            font-size:1.1em;
-            cursor:pointer;
-            box-shadow:0 8px 20px rgba(0,0,0,0.15);
-        ">
-            💌 Open Secret Letter
-        </button>
+    <!-- LETTER -->
+    <div class="letter-box">
+        <button onclick="openLetter()">💌 Open Secret Letter</button>
 
-        <div id="letterBox" style="
-            display:none;
-            margin:20px auto;
-            max-width:600px;
-            background:white;
-            border:3px solid #C89664;
-            border-radius:15px;
-            padding:20px;
-            white-space:pre-wrap;
-        ">
-            <div id="typedText"></div>
-        </div>
+        <div id="letter"></div>
     </div>
 
     <!-- GALLERY -->
     <div class="gallery">
 
-        <!-- ALL YOUR IMAGES (UNCHANGED) -->
         <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/XHEAB0V.png"></div><div class="caption">FIRST MONTH GYULP HOW LONG MORE BEFORE YOU BLOCK ME</div></div>
 
-        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/xRno0Co.png"></div><div class="caption">June is pride month guys 🌈</div></div>
+        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/xRno0Co.png"></div><div class="caption">June is pride month 🌈</div></div>
 
         <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/5YcY51d.png"></div><div class="caption">HI MAGGI I LAVA YOU</div></div>
 
@@ -174,13 +193,13 @@
 
         <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/aQ2BDpC.png"></div><div class="caption">MUCH BETTER MEOW</div></div>
 
-        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/jWSOLBR.png"></div><div class="caption">our first baby. little mothy</div></div>
+        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/jWSOLBR.png"></div><div class="caption">our first baby</div></div>
 
-        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/nLPdaU4.png"></div><div class="caption">IM ANXIOUS IM ANXIOUS</div></div>
+        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/nLPdaU4.png"></div><div class="caption">IM ANXIOUS</div></div>
 
-        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/SkeLLL0.png"></div><div class="caption">you hate me you hate me</div></div>
+        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/SkeLLL0.png"></div><div class="caption">you hate me</div></div>
 
-        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/uVizQho.png"></div><div class="caption">HI MAGGI.</div></div>
+        <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/uVizQho.png"></div><div class="caption">HI MAGGI</div></div>
 
         <div class="image-card"><div class="image-container"><img src="https://i.imgur.com/KclNDRy.png"></div><div class="caption">I WIN</div></div>
 
@@ -190,33 +209,35 @@
 
     </div>
 
-</div>
+    <!-- MESSAGE SECTION (RESTORED) -->
+    <div class="message-section">
+        <div class="first-message">FIRST MESSAGE GYULP</div>
+        <div class="timestamp">Faye — 22/05/2026 9:07 AM</div>
+    </div>
 
-<!-- YOUTUBE (hidden) -->
-<div id="yt"></div>
+</div>
 
 <script>
 
-let musicOn = false;
+let music = false;
 let opened = false;
 
-/* 🎵 MUSIC */
 function toggleMusic() {
-    if (!musicOn) {
+    const yt = document.getElementById("yt");
+
+    if (!music) {
         const iframe = document.createElement("iframe");
-        iframe.width = "0";
-        iframe.height = "0";
+        iframe.width = 0;
+        iframe.height = 0;
         iframe.src = "https://www.youtube.com/embed/QcDEwcwmEbs?autoplay=1&loop=1&playlist=QcDEwcwmEbs";
         iframe.allow = "autoplay";
-        document.getElementById("yt").appendChild(iframe);
-        musicOn = true;
+        document.body.appendChild(iframe);
+        music = true;
     } else {
-        document.getElementById("yt").innerHTML = "";
-        musicOn = false;
+        location.reload();
     }
 }
 
-/* 💌 LETTER */
 const message =
 `Faye, I adore you. Absolutely adorable. You’re fun to be around.
 You truly carry me in Roblox and I carry you in Minecraft. 🤞`;
@@ -228,15 +249,17 @@ function openLetter() {
     if (opened) return;
     opened = true;
 
-    document.getElementById("letterBox").style.display = "block";
-    typeWriter(message, document.getElementById("typedText"));
+    const letter = document.getElementById("letter");
+    letter.style.display = "block";
+
+    typeWriter(message, letter);
+
     spawnParticles();
 }
 
-/* TYPEWRITER */
 function typeWriter(text, el) {
-    let i = 0;
     el.innerHTML = "";
+    let i = 0;
 
     function run() {
         if (i < text.length) {
@@ -244,10 +267,10 @@ function typeWriter(text, el) {
             setTimeout(run, 25);
         }
     }
+
     run();
 }
 
-/* 🤞 PARTICLES */
 function spawnParticles() {
     for (let i = 0; i < 20; i++) {
         setTimeout(() => {
