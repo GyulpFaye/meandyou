@@ -17,7 +17,7 @@
             background-color: #F4E4A8;
             background-image: 
                 radial-gradient(circle at 15% 10%, rgba(200, 150, 100, 0.3) 2%, transparent 2%),
-                radial-gradient(circle at 85% 20%, rgba(200, 150, 100, 0.3) 2%, transparent 2%),
+                radial-gradient(circle at 85% 20%, rgba(200, 150, 100, 0.3) 2%, transparent 2%),a
                 radial-gradient(circle at 10% 40%, rgba(200, 150, 100, 0.3) 1.5%, transparent 1.5%),
                 radial-gradient(circle at 90% 50%, rgba(200, 150, 100, 0.3) 1.8%, transparent 1.8%),
                 radial-gradient(circle at 80% 80%, rgba(200, 150, 100, 0.3) 2.2%, transparent 2.2%);
@@ -108,6 +108,10 @@
             justify-content: center;
         }
 
+        .caption.empty {
+            display: none;
+        }
+
         .message-section {
             background: white;
             border-radius: 15px;
@@ -148,18 +152,13 @@
             }
         }
 
-        /* 🤞 particles */
-        .particle {
-            position: fixed;
-            font-size: 20px;
-            animation: floatUp 2s linear forwards;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-150px); opacity: 0; }
+        .placeholder-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            font-size: 3em;
+            color: #999;
         }
 
         @media (max-width: 768px) {
@@ -179,193 +178,116 @@
 </head>
 
 <body>
-
-<div class="container">
-
+   <div class="container">
     <header>
         <h1>FayeFaye</h1>
         <p class="subtitle">Je t'adore, Faye 🤞<br>Bonne nuit</p>
     </header>
-
-    <!-- 💌 SECRET LETTER -->
-    <div style="text-align:center; margin-bottom: 30px;">
-        <button onclick="openLetter()" style="
-            background:#5B4B9E;
-            color:white;
-            border:none;
-            padding:12px 18px;
-            border-radius:12px;
-            font-size:1.1em;
-            cursor:pointer;
-            box-shadow:0 8px 20px rgba(0,0,0,0.15);
-        ">
-            💌 Open Secret Letter
-        </button>
-
-        <div id="letterBox" style="
-            display:none;
-            margin:20px auto;
-            max-width:600px;
-            background:white;
-            border:3px solid #C89664;
-            border-radius:15px;
-            padding:20px;
-            font-size:1.1em;
-            line-height:1.5;
-            white-space:pre-wrap;
-        ">
-            <div id="typedText"></div>
-        </div>
-    </div>
-
-    <div class="gallery">
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/XHEAB0V.png">
-            </div>
-            <div class="caption">FIRST MONTH GYULP HOW LONG MORE BEFORE YOU BLOCK ME</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/xRno0Co.png">
-            </div>
-            <div class="caption">June is pride month guys, happy pride month guys 🌈</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/5YcY51d.png">
-            </div>
-            <div class="caption">HI MAGGI I LAVA YOU</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/xphfrm1.png">
-            </div>
-            <div class="caption">GYULP</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/aQ2BDpC.png">
-            </div>
-            <div class="caption">MUCH BETTER MEOW</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/jWSOLBR.png">
-            </div>
-            <div class="caption">our first baby. little mothy</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/nLPdaU4.png">
-            </div>
-            <div class="caption">IM ANXIOUS IM ANXIOUS IM ANXIOUS IMS SCARED</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/SkeLLL0.png">
-            </div>
-            <div class="caption">me when you hate me, you hate me you hate me</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/uVizQho.png">
-            </div>
-            <div class="caption">HI MAGGI.</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/KclNDRy.png">
-            </div>
-            <div class="caption">I WIN I WIN IM BETTER</div>
-        </div>
-
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://i.imgur.com/sRSln6l.png">
-            </div>
-            <div class="caption">OK FINE U WIN GYULP.</div>
-        </div>
-
-    </div>
-
-    <div class="message-section">
-        <div class="first-message">FIRST MESSAGE GYULP</div>
-        <div class="timestamp">Faye — 22/05/2026 9:07 AM</div>
-    </div>
-
 </div>
 
-<script>
+        <div class="gallery">
+            <!-- Image Card 1 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/XHEAB0V.png" alt="First image">
+                </div>
+                <div class="caption">FIRST MONTH GYULP HOW LONG MORE BEFORE YOU BLOCK ME</div>
+            </div>
 
-let opened = false;
+            <!-- Image Card 2 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/xRno0Co.png" alt="Minecraft pride">
+                </div>
+                <div class="caption">June is pride month guys, happy pride month guys 🌈</div>
+            </div>
 
-const message =
-`Faye, I adore you. Absolutely adore you. You’re fun to be around.
-You truly carry me in Roblox and I carry you in Minecraft. 🤞`;
+            <!-- Image Card 3 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/5YcY51d.png" alt="Maggi">
+                </div>
+                <div class="caption">HI MAGGI I LAVA YOU</div>
+            </div>
 
-function openLetter() {
-    const password = prompt("Enter password:");
+            <!-- Image Card 4 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/xphfrm1.png" alt="Robpride">
+                </div>
+                <div class="caption">GYULP</div>
+            </div>
 
-    if (password !== "Maggi") {
-        alert("Wrong password.");
-        return;
-    }
+            <!-- Image Card 5 -->
+            <div class="image-card">
+                <div class="image-container">
+                  <img src="https://i.imgur.com/aQ2BDpC.png" alt="Rob pride">
+                </div>
+                <div class="caption">MUCH BETTER MEOW</div>
+            </div>
 
-    if (opened) return;
-    opened = true;
+            <!-- Image Card 6 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/jWSOLBR.png" alt="Our first baby">
+                </div>
+                <div class="caption">our first baby. little mothy</div>
+            </div>
 
-    document.getElementById("letterBox").style.display = "block";
-    typeWriter(message, document.getElementById("typedText"));
+            <!-- Image Card 7 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/nLPdaU4.png" alt="Anxious message">
+                </div>
+                <div class="caption">IM ANXIOUS IM ANXIOUS IM ANXIOUS IMS SCARED</div>
+            </div>
 
-    spawnParticles();
-}
+            <!-- Image Card 8 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/SkeLLL0.png" alt="Me when you hate me">
+                </div>
+                <div class="caption">me when you hate me, you hate me you hate me</div>
+            </div>
 
-/* TYPEWRITER */
-function typeWriter(text, el) {
-    let i = 0;
-    el.innerHTML = "";
+            <!-- Image Card 9 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/uVizQho.png" alt="Hi Maggi">
+                </div>
+                <div class="caption">HI MAGGI.</div>
+            </div>
 
-    function typing() {
-        if (i < text.length) {
-            el.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typing, 25);
-        }
-    }
+            <!-- Image Card 10 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/KclNDRy.png" alt="I win">
+                </div>
+                <div class="caption">I WIN I WIN IM BETTER</div>
+            </div>
 
-    typing();
-}
+            <!-- Image Card 11 -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/sRSln6l.png" alt="You win">
+                </div>
+                <div class="caption">OK FINE U WIN GYULP.</div>
+            </div>
 
-/* 🤞 PARTICLES */
-function spawnParticles() {
-    for (let i = 0; i < 20; i++) {
-        setTimeout(() => {
-            const p = document.createElement("div");
-            p.classList.add("particle");
-            p.innerHTML = "🤞";
+            <!-- Image Card 12 (NEW) -->
+            <div class="image-card">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/0lqnmrb.png" alt="Gift">
+                </div>
+                <div class="caption">I GOAT A GIFT FOR YOU MEOWWW.</div>
+            </div>
 
-            p.style.left = Math.random() * window.innerWidth + "px";
-            p.style.top = (window.innerHeight - 100) + "px";
+        </div>
 
-            document.body.appendChild(p);
-
-            setTimeout(() => p.remove(), 2000);
-        }, i * 80);
-    }
-}
-
-</script>
-
+        <div class="message-section">
+            <div class="first-message">FIRST MESSAGE GYULP</div>
+            <div class="timestamp">Faye — 22/05/2026 9:07 AM</div>
+        </div>
+    </div>
 </body>
 </html>
